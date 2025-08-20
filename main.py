@@ -26,7 +26,6 @@ app = Flask(__name__)
 def home():
     return {"status": "ok", "message": "Bot en ligne 🚀"}
 
-# Endpoint Siri pour lancer une musique
 @app.route("/play", methods=["POST"])
 def play():
     data = request.json
@@ -37,9 +36,10 @@ def play():
     async def send_play():
         channel = bot.get_channel(CHANNEL_ID)
         if channel:
-            await channel.send(f"/play {titre}")
+            # ⚡ Ici on envoie exactement la commande que tu veux
+            await channel.send(f"/play query:{titre}")
         else:
-            print("❌ Salon introuvable")
+            print("Salon non trouvé")
 
     bot.loop.create_task(send_play())
     return {"status": "ok", "message": f"Commande envoyée : {titre}"}
