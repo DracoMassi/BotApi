@@ -37,7 +37,7 @@ def play():
         channel = bot.get_channel(CHANNEL_ID)
         if channel:
             # ⚡ Ici on envoie exactement la commande que tu veux
-            await channel.send(f"!play {titre}")
+            await channel.send(f"!play query:{titre}")
         else:
             print("Salon non trouvé")
 
