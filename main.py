@@ -1,4 +1,4 @@
-y:from flask import Flask, request
+from flask import Flask, request
 import discord
 from discord.ext import commands
 import threading
